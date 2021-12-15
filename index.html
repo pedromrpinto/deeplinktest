@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<title>Open Android app</title>
+	<script type="text/javascript">
+		var fallbackToStore = function() {
+		window.location.replace('market://details?id=com.myapp.package');
+		};
+		var openApp = function(uri_scheme) {
+		window.location.replace(uri_scheme);
+		};
+		var triggerAppOpen = function() {
+		openApp(document.getElementById('uri_scheme').value);
+		setTimeout(fallbackToStore, 250);
+		};
+	</script>
+</head>
+<body>
+	<input type="text" id="uri_scheme" name="uri_scheme">
+	<button onclick="triggerAppOpen()">Open Scheme</button>
+</body>
